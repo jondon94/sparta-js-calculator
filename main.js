@@ -68,9 +68,15 @@ if (Calculator == "B") {
     }
     else if (parseFloat(vel) > "60") {
       mpgNew = mpg - (2 * (vel - 60))
-      timeAnswer = parseFloat(dist) / parseFloat(vel)
-      costpg = (parseFloat(dist) / parseFloat(mpgNew)) * parseFloat(cost);
-      alert("The cost of fuel for travel is £" + Math.ceil(costpg) + "And it will take " + Math.ceil(timeAnswer) + " hours");
+      if (parseFloat(mpgNew > "0")) {
+        timeAnswer = parseFloat(dist) / parseFloat(vel)
+        costpg = (parseFloat(dist) / parseFloat(mpgNew)) * parseFloat(cost);
+        alert("The cost of fuel for travel is £" + Math.ceil(costpg) + "And it will take " + Math.ceil(timeAnswer) + " hours");
+      } else {
+        alert("You not getting anywhere fast...")
+
+      }
+
 
     }
   }
