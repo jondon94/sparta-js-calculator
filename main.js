@@ -19,7 +19,8 @@ if (Calculator == "B") {
         Answer = parseFloat(input1) / parseFloat(input2);
         alert("The result is " + Answer);
     }
-} else if (Calculator == "A") {
+}
+  else if (Calculator == "A") {
     var input1 = prompt("Welcome to the Advanced Calculator, please input your value.");
     alert(input1);
     var input2 = prompt("Please input your second value");
@@ -33,7 +34,8 @@ if (Calculator == "B") {
         Answer = Math.sqrt(parseFloat(input1));
         alert("The result is " + Answer);
       }
-} else if (Calculator == "X") {
+}
+ else if (Calculator == "X") {
     var system = prompt("Please choose between the metric(m) and imperial(i) system");
     if (system == "m") {
       alert("Metric System (metres, kilograms)");
@@ -42,7 +44,8 @@ if (Calculator == "B") {
       Answer1 = parseFloat(weight) / parseFloat(height);
       Answer2 = parseFloat(Answer1) / parseFloat(height);
       alert("Your BMI is " + Answer2);
-} else if (system == "i") {
+}
+ else if (system == "i") {
     alert("Imperial System (Pounds, Feet)");
     var height = prompt("What is your height in inches (12 inches for every foot)");
     var weight = prompt("What is your weight in pounds?")
@@ -51,16 +54,23 @@ if (Calculator == "B") {
     Answer3 = Answer1 / Answer2;
     alert("Your BMI is " + Answer3)
 }
-} else if (Calculator == "M") {
-    alert("Trip Calculator; This will calculate the duration and cost of the trip.")
-    var vel = prompt("what is the average speed of the trip? (in miles per hour)")
-    var dist = prompt("How far are you travelling? (in miles)")
-    var mpg = prompt("What is your average mpg?")
-    var cost = prompt("How much does the fuel cost? (per gallon)")
-    timeAnswer = parseFloat(dist) / parseFloat(vel)
-    alert("The trip will take " + timeAnswer "hours")
-    if (vel < "61") {
-      costpg = (parceFloat(dist) / parceFloat(mpg)) * parceFloat(cost);
-      alert("The cost of fuel for travel is " + costpg);
+}
+ else if (Calculator == "M") {
+    alert("Trip Calculator; This will calculate the duration and cost of the trip.");
+    var vel = prompt("what is the average speed of the trip? (in miles per hour)");
+    var dist = prompt("How far are you travelling? (in miles)");
+    var cost = prompt("How much does the fuel cost? (per gallon)");
+    mpg = 30;
+    if (parseFloat(vel) < "61") {
+      timeAnswer = parseFloat(dist) / parseFloat(vel)
+      costpg = (parseFloat(dist) / parseFloat(mpg)) * parseFloat(cost);
+      alert("The cost of fuel for travel is £" + Math.ceil(costpg) + " and it will take " + Math.ceil(timeAnswer) + " hours");
+    }
+    else if (parseFloat(vel) > "60") {
+      mpgNew = mpg - (2 * (vel - 60))
+      timeAnswer = parseFloat(dist) / parseFloat(vel)
+      costpg = (parseFloat(dist) / parseFloat(mpgNew)) * parseFloat(cost);
+      alert("The cost of fuel for travel is £" + Math.ceil(costpg) + "And it will take " + Math.ceil(timeAnswer) + " hours");
+
     }
   }
